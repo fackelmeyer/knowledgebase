@@ -1,70 +1,103 @@
 # Installation von MongoDB auf einem Linux-Server
 
-MongoDB ist eine kostenlose, Open-Source-Dokumenten-orientierte Datenbank, die Daten in JSON-ähnlichen Dokumenten mit einem flexiblen Schema speichert. Diese "NoSQL"-Datenbank ist eine beliebte Alternative zu traditionellen relationalen Datenbanken wie MySQL. Erfahren Sie, wie Sie MongoDB auf einem Cloud Server mit CentOS 7, Ubuntu 14.04 oder Ubuntu 16.04 installieren.
+MongoDB ist eine kostenlose, quelloffene, dokumentenorientierte Datenbank, die Daten in JSON-ähnlichen Dokumenten mit einem flexiblen Schema speichert. Diese "NoSQL"-Datenbank ist eine beliebte Alternative zu klassischen relationalen Datenbanken wie MySQL.
 
-Es gibt zwei Möglichkeiten, MongoDB zu installieren:
+In dieser Anleitung installierst du die aktuelle **MongoDB Community Edition 8.0** über das offizielle MongoDB-Repository.
 
-Auf einem neuen Server:
-MongoDB ist als fertige Anwendung verfügbar, die beim Aufbau automatisch auf dem Server installiert werden kann.
- 
-Auf einem bestehenden Server: 
-MongoDB kann manuell installiert und auf einem bestehenden Server konfiguriert werden.
+{% hint style="warning" %}
+MongoDB wird offiziell für **Debian 12 (bookworm)** sowie **Ubuntu 22.04 (jammy)** und **Ubuntu 24.04 (noble)** unterstützt. Für Debian 13 (trixie) stellt MongoDB derzeit noch kein vollständiges Server-Paket bereit.
+{% endhint %}
 
-## CentOS
+* Aktualisiere zuerst die Paketlisten und installiere die benötigten Pakete.
+```bash
+apt update && apt install gnupg curl -y
+```
 
-Um das Repository hinzuzufügen, muss eine anfangs leere mongodb-org-3.6.repo-Datei erstellt werden und zur Bearbeitung mit dem folgenden Befehl geöffnet werden
+* Importiere den offiziellen GPG-Schlüssel von MongoDB.
+```bash
+curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg
+```
 
-<pre>
-sudo nano /etc/yum.repos.d/mongodb-org-3.6.repo
-</pre>
+{% tabs %}
+{% tab title="Debian 12" %}
+* Füge das MongoDB-Repository hinzu.
 
-Jetzt muss dort der folgende Inhalt eingefügt werden:
+```bash
+echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] http://repo.mongodb.org/apt/debian bookworm/mongodb-org/8.0 main" | tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+```
+{% endtab %}
 
-<pre>
-[mongodb-org-3.6]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
-gpgcheck=1
-enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
-</pre>
+{% tab title="Ubuntu 22.04" %}
+* Füge das MongoDB-Repository hinzu.
 
-Nun das System mit <code>sudo yum update</code> aktualisieren und MongoDB mit dem folgenden Befehl installieren:
-<pre>
-sudo yum install -y mongodb-org
-</pre>
+```bash
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+```
+{% endtab %}
 
-## Ubuntu
-### Version 14.04
+{% tab title="Ubuntu 24.04" %}
+* Füge das MongoDB-Repository hinzu.
 
-MongoDB neustarten und den öffentlichen MongoDB GPG-Schlüssel importieren:
+```bash
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+```
+{% endtab %}
+{% endtabs %}
 
-<pre>
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
-</pre>
+* Aktualisiere die Paketlisten erneut.
+```bash
+apt update
+```
 
-Erstelle eine anfangs leere mongodb-org-3.6.list Datei:
+* Installiere MongoDB. Das Meta-Paket `mongodb-org` zieht alle benötigten Komponenten (Server, Shell, Tools) mit.
+```bash
+apt install mongodb-org -y
+```
 
-<pre>
-echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
-</pre>
+* Starte den MongoDB-Dienst und aktiviere den automatischen Start nach einem Neustart.
+```bash
+systemctl enable --now mongod
+```
 
-Nun muss noch die Paketdatenbank aktualisiert werden:
+* Überprüfe, ob der Dienst läuft.
+```bash
+systemctl status mongod
+```
 
-<pre>
-sudo apt-get update
-</pre>
+* Du kannst dich anschließend mit der MongoDB-Shell verbinden.
+```bash
+mongosh
+```
 
-MongoDB lässt sich ganz einfach mit diesem Befehl installieren:
+## Zugriff absichern
 
-<pre>
-sudo apt-get install -y mongodb-org
-</pre>
+Standardmäßig ist die Authentifizierung deaktiviert und MongoDB lauscht nur auf `localhost` (`127.0.0.1`). 
 
-### Version 16.04
+{% hint style="danger" %}
+Öffne MongoDB **niemals** ungesichert nach außen. Lege zuerst einen Administrator-Benutzer an und aktiviere die Authentifizierung, bevor du `bindIp` in der Datei `/etc/mongod.conf` änderst. Beschränke den Zugriff zusätzlich über eine Firewall (z.B. UFW) auf vertrauenswürdige IP-Adressen.
+{% endhint %}
 
-Bei Ubuntu 16.04 ist genau das gleiche, der zweite Befehl ist jedoch ein wenig anders:
+* Verbinde dich mit der Shell und lege einen Admin-Benutzer an.
+```bash
+mongosh
+```
+```javascript
+use admin
+db.createUser({
+  user: "admin",
+  pwd: passwordPrompt(),
+  roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+})
+exit
+```
 
-<pre>
-echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
-</pre>
+* Aktiviere danach die Authentifizierung in der Datei `/etc/mongod.conf`, indem du den folgenden Abschnitt ergänzt bzw. einkommentierst.
+```yaml
+security:
+  authorization: enabled
+```
+
+* Starte den Dienst neu, damit die Änderungen wirksam werden.
+```bash
+systemctl restart mongod
+```
