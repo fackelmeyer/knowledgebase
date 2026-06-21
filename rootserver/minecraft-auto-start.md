@@ -28,7 +28,7 @@ done
 * Ein Beispiel für einen Pfad 
 
 ```bash
-/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/bin/java -jar spigot.jar
+/usr/lib/jvm/temurin-21-jdk-amd64/bin/java -jar spigot.jar
 ```
 
 * Nun gebe deiner Startdatei Rechte zum Ausführen
