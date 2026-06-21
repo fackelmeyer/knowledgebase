@@ -4,7 +4,7 @@ Wenn man bei MC-Host24 einen eigenen Minecraft-Server für die <b>Java Edition</
 
 ## 1. Installation
 
-Als erstes muss man sich das Plugin vom oben stehenden Link herunterladen. Danach muss es vom lokalen Desktop in den "<b>plugins</b>"-Ordner bewegt werden. Dazu muss man sich mit einem sogenannten FTP-Client mit dem Gameserver verbinden, dort zum oben genannten Ordner navigieren und das Plugin dort ablegen. Jetzt muss der Server nur noch einmal neugestartet werden und GeyserMC sollte jetzt laden. Das Plugin funktioniert aber nur dann, wenn der Server auf Version <b>1.13.2 und neuer</b> läuft und dort auch das Plugin <b>ViaVersion</b> installiert ist. Letzteres wird nicht benötigt, wenn der Server bereits auf der neuesten Version (zurzeit 1.19.4) läuft.
+Als erstes muss man sich das Plugin vom oben stehenden Link herunterladen. Danach muss es vom lokalen Desktop in den "<b>plugins</b>"-Ordner bewegt werden. Dazu muss man sich mit einem sogenannten FTP-Client mit dem Gameserver verbinden, dort zum oben genannten Ordner navigieren und das Plugin dort ablegen. Jetzt muss der Server nur noch einmal neugestartet werden und GeyserMC sollte jetzt laden. Das Plugin funktioniert aber nur dann, wenn der Server auf Version <b>1.13.2 und neuer</b> läuft und dort auch das Plugin <b>ViaVersion</b> installiert ist. Letzteres wird nicht benötigt, wenn der Server bereits auf einer aktuellen Version läuft.
 
 ## 2. Konfiguration
 
