@@ -1,17 +1,26 @@
-# Minecraft Server auf Debian 11
-In dieser Anleitung könnt ihr lesen, wie ihr einen Minecraft-Server auf eurem Debian 11-Rootserver installiert.
+# Minecraft Server auf Debian
+In dieser Anleitung könnt ihr lesen, wie ihr einen Minecraft-Server auf eurem Debian-Rootserver (Debian 11, 12 oder 13) installiert.
 ## Java installieren
-Damit euer Minecraft-Server funktionieren kann, benötigt er eine Version von Java. Die JDK (*Java Developement Kit*) und die JRE (*Java Runtime Environment*) sorgen dafür, dass euer Server ganz einfach mithilfe des `java`-Befehls gestartet werden kann.
+Damit euer Minecraft-Server funktionieren kann, benötigt er eine Version von Java. Das JDK (*Java Development Kit*) und die JRE (*Java Runtime Environment*) sorgen dafür, dass euer Server ganz einfach mithilfe des `java`-Befehls gestartet werden kann.
+
+Die benötigte Java-Version richtet sich nach der Minecraft-Version:
+
+| Minecraft-Version | Java-Version |
+| --- | --- |
+| 1.17 – 1.20.4 | [Java 17](java-17-setup.md) |
+| 1.20.5 und neuer (u.a. 1.21.x) | [Java 21](java-21-setup.md) |
 
 1. Die Pakete und Paketquellen müssen aktualisiert werden
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
 ```
-2. Die für die Minecraft-Version empfohlene Version von Java muss installiert werden. Zum jetzigen Zeitpunkt (05.2023) ist das **Java 17**.
+2. Installiert die zu eurer Minecraft-Version passende Java-Version (siehe Tabelle oben). Für aktuelle Versionen (1.20.5+ / 1.21.x) ist das **Java 21**. Unter Debian 13 sowie Ubuntu 22.04/24.04 installiert ihr es direkt aus den Paketquellen:
 ```bash
-sudo apt-get install openjdk-17-jdk openjdk-17-jre -y
+sudo apt-get install openjdk-21-jdk openjdk-21-jre -y
 ```
-:warning: Dieser Befehl funktioniert **nicht** auf **Debian 10**. Ubuntu wurde nicht getestet.
+{% hint style="info" %}
+Unter **Debian 11/12** ist `openjdk-21` nicht in den Standard-Paketquellen enthalten – installiert Java 21 dort über das Eclipse-Temurin-Repository, wie in der Anleitung [Java 21 installieren](java-21-setup.md) beschrieben. Für Minecraft bis 1.20.4 genügt [Java 17](java-17-setup.md) (`openjdk-17-jdk openjdk-17-jre`).
+{% endhint %}
 
 ## Minecraft-Server herunterladen
 1. Nun sollte ein Verzeichnis erstellt werden, in welchem später der Minecraft-Server liegt. Daraufhin wird direkt in dieses Verzeichnis gewechselt. Zum Beispiel:
@@ -22,10 +31,13 @@ mkdir /home/minecraft/ && cd /home/minecraft/
 2. Jetzt sollte die Datei des gewünschten Minecraft-Servers heruntergeladen werden. Dabei kann es sich um Vanilla, Spigot, Paper, Forge, Fabric, usw. handeln. Die neuste Vanilla-Version kann auf der Seite https://www.minecraft.net/de-de/download/server heruntergeladen werden. Um den Prozess zu vereinfachen, sollte die Datei direkt auf den Server heruntergeladen werden. Dazu kann einfach im Rechtsklickmenü des Downloadlinks *"Adresse des Links kopieren"* ausgewählt werden.
 ![Adresse des Links kopieren](../.gitbook/assets/minecraft-server-download-adresse-kopieren.png)
 
-Dann kann die Datei mit dem `wget`-Befehl heruntergeladen werden. Der kopierte Link lässt sich im Terminal mit Rechtsklick einfügen. Der Befehl könnte dann so aussehen (1.19.4):
+Dann kann die Datei mit dem `wget`-Befehl heruntergeladen werden. Der kopierte Link lässt sich im Terminal mit Rechtsklick einfügen. Der Befehl sieht dann beispielhaft so aus (ersetzt die URL durch den von euch kopierten Download-Link):
 ```bash
-wget https://piston-data.mojang.com/v1/objects/8f3112a1049751cc472ec13e397eade5336ca7ae/server.jar
+wget <DOWNLOAD-LINK> -O server.jar
 ```
+{% hint style="info" %}
+Für die meisten Server empfiehlt sich **PaperMC** statt Vanilla, da es deutlich performanter ist. Die passende `paper.jar` findet ihr unter https://papermc.io/downloads/paper.
+{% endhint %}
 3. Dieser Schritt ist nur notwendig, wenn die heruntergeladene Datei nicht `server.jar` heißt. Sie muss dann mit folgendem Befehl umbenannt werden.
 ```bash
 mv <dateiname.jar> server.jar
@@ -67,4 +79,4 @@ Die Serverkonsole kann mit der Tastenkombination `STRG + A` und einem darauffolg
 ```bash
 screen -r minecraft
 ```
-In [diesem](/rootserver/minecraft-auto-start.md) Artikel wird euch gezeigt, wie ihr den Minecraft-Server nach einem Absturz direkt wieder automatisch starten könnt!
+In [diesem](minecraft-auto-start.md) Artikel wird euch gezeigt, wie ihr den Minecraft-Server nach einem Absturz direkt wieder automatisch starten könnt!
