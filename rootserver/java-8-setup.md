@@ -1,27 +1,29 @@
 # Setup Java 8
 
+{% hint style="info" %}
+Java 8 wird nur noch für sehr alte Anwendungen (z.B. Minecraft bis 1.16) benötigt. Für neuere Software solltet ihr [Java 17](java-17-setup.md) oder [Java 21](java-21-setup.md) verwenden.
+{% endhint %}
 
-Installieren Sie die benötigten Pakete
+AdoptOpenJDK wurde 2021 zu **Eclipse Temurin** (Adoptium) umbenannt. Das alte `adoptopenjdk.jfrog.io`-Repository wird nicht mehr gepflegt – stattdessen verwenden wir das aktuelle Adoptium-Repository.
+
+* Aktualisiere zuerst die Paketlisten und installiere die benötigten Pakete.
 ``` bash
-apt install apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common -y
+apt update && apt install wget gnupg ca-certificates -y
 ```
 
-Fügen Sie den Publickey für das Java 8 Repository hinzu und hinterlegen das Repository auf Ihrem Server
-
+* Hinterlege den GPG-Schlüssel von Adoptium.
 ``` bash
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor -o /usr/share/keyrings/adoptium.gpg
 ```
 
-Aktualisieren Sie die Paketquellen
-
+* Füge das Adoptium-Repository hinzu.
 ``` bash
-apt update
+echo "deb [signed-by=/usr/share/keyrings/adoptium.gpg] https://packages.adoptium.net/artifactory/deb $(. /etc/os-release && echo "$VERSION_CODENAME") main" > /etc/apt/sources.list.d/adoptium.list
 ```
 
-Installieren Sie Java8
-
+* Aktualisiere die Paketlisten und installiere Java 8 (Temurin).
 ``` bash
-apt install adoptopenjdk-8-hotspot -y
+apt update && apt install temurin-8-jdk -y
 ```
 
 Mit diesem Befehl kannst du die Version überprüfen
@@ -31,7 +33,7 @@ java -version
 ```
 Beispielausgabe:
 ```
-openjdk version "1.8.0_292"
-OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10)
-OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode)
+openjdk version "1.8.0_432"
+OpenJDK Runtime Environment (Temurin)(build 1.8.0_432-b06)
+OpenJDK 64-Bit Server VM (Temurin)(build 25.432-b06, mixed mode)
 ```

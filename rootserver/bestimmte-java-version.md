@@ -11,10 +11,10 @@ screen -S Minecraft Dein_Java_pfad/java -Xms1G -Xmx2G -jar Spigot.jar
 * Beispiel:
 
 ```bash
-screen -S Minecraft /usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/bin/java -Xms1G -Xmx2G -jar Spigot.jar
+screen -S Minecraft /usr/lib/jvm/temurin-21-jdk-amd64/bin/java -Xms1G -Xmx2G -jar Spigot.jar
 ```
 
-* Deine insatllierte Java Versionen findest du hier:
+* Deine installierten Java-Versionen findest du hier:
 
 ```bash
 cd /usr/lib/jvm/
