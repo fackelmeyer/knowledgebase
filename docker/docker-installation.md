@@ -1,5 +1,7 @@
 # Docker Installation
 
+In dieser Anleitung installierst du Docker Engine inklusive Docker Compose (v2) über das offizielle Docker-Repository. Diese Methode ist sowohl für Debian (11/12/13) als auch für Ubuntu (22.04/24.04) aktuell.
+
 * Aktualisiere die Paketlisten & installiere die Updates.
 ```bash
 apt update && apt upgrade -y
@@ -13,70 +15,89 @@ Solltest du nicht wissen, welches Betriebssystem du verwendest, kannst du dies m
 cat /etc/issue
 ```
 
+* Installiere die benötigten Pakete für die Einrichtung des Repositories.
+```bash
+apt install ca-certificates curl -y
+```
+
+* Lege das Verzeichnis für den GPG-Schlüssel an.
+```bash
+install -m 0755 -d /etc/apt/keyrings
+```
+
 {% tabs %}
 {% tab title="Debian" %}
-* Benötigte Pakete für die Installation von Docker
+* Lade den offiziellen GPG-Schlüssel von Docker herunter.
 
 ```bash
-apt install ca-certificates curl gnupg lsb-release -y
+curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+chmod a+r /etc/apt/keyrings/docker.asc
 ```
 
-```bash
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-```
+* Füge das Docker-Repository zu deinen Paketquellen hinzu.
 
 ```bash
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-```
-
-```bash
-apt update
-```
-
-```bash
-apt install docker-ce docker-ce-cli containerd.io -y
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
 {% endtab %}
 
 {% tab title="Ubuntu" %}
-* Benötigte Pakete für die Installation von Docker
+* Lade den offiziellen GPG-Schlüssel von Docker herunter.
 
 ```bash
-sudo apt install ca-certificates curl gnupg lsb-release -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+chmod a+r /etc/apt/keyrings/docker.asc
 ```
 
-```bash
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-```
+* Füge das Docker-Repository zu deinen Paketquellen hinzu.
 
 ```bash
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
 {% endtab %}
 {% endtabs %}
 
-* Aktiviere den Docker Dienst
+* Aktualisiere die Paketlisten erneut.
 ```bash
-sudo systemctl start docker --now
+apt update
 ```
 
-* Füge deinen Benutzernamen zur Docker-Gruppe hinzu.
+* Installiere Docker Engine, die CLI, containerd, Buildx und das Compose-Plugin.
 ```bash
-sudo usermod -aG docker $USER
+apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 ```
 
-# Docker Compose installieren
-
-* Installiere Docker Compose Binärdatei Herunter
+* Aktiviere den Docker-Dienst, sodass er auch nach einem Neustart automatisch startet.
 ```bash
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+systemctl enable --now docker
 ```
 
-* Erteile die Berechtigung für die Compose Binärdatei
+* Füge deinen Benutzernamen zur Docker-Gruppe hinzu (damit du Docker ohne `sudo` verwenden kannst). Danach einmal ab- und wieder anmelden.
 ```bash
-sudo chmod +x /usr/local/bin/docker-compose
+usermod -aG docker $USER
+```
+
+* Überprüfe die Installation mit einem Testcontainer.
+```bash
+docker run --rm hello-world
+```
+
+# Docker Compose verwenden
+
+{% hint style="info" %}
+Docker Compose ist mit dem Paket `docker-compose-plugin` bereits installiert und wird über den Befehl `docker compose` (mit Leerzeichen, **ohne** Bindestrich) aufgerufen. Das alte, eigenständige `docker-compose` (v1) wird seit 2023 nicht mehr unterstützt und sollte nicht mehr verwendet werden.
+{% endhint %}
+
+* Überprüfe die installierte Compose-Version.
+```bash
+docker compose version
+```
+
+* Eine `docker-compose.yml` startest du anschließend im jeweiligen Verzeichnis so:
+```bash
+docker compose up -d
 ```

@@ -2,7 +2,7 @@
 
 !!! Wichtig !!!
 Falls ihr Docker nicht installiert habt, folgt der Docker Installation:
-{% embed url="https://docs.mc-host24.de/docs/rootserver/docker-installation" %}
+{% embed url="https://docs.mc-host24.de/docs/docker/docker-installation" %}
 
 
 * Aktualisiere die Paketlisten & installiere die Updates.
@@ -31,8 +31,7 @@ nano docker-compose.yml
 ```
 
 * Füge nun diesen Code ein
-```bash
-version: '3'
+```yaml
 services:
   app:
     image: 'jc21/nginx-proxy-manager:latest'
@@ -48,11 +47,11 @@ services:
 
 * Bringe dein ```Nginx Proxy Manager``` zum laufen
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
-* Die Website kannst du unter http://127.0.0.1:81 oder mit der Public adresse mit dem port ```81``` ereichen.
-* Die Standart daten zum anmelden sind:
+* Die Website kannst du unter http://127.0.0.1:81 oder mit der Public-Adresse mit dem Port ```81``` erreichen.
+* Die Standard-Daten zum Anmelden sind:
 ```bash
 Email:    admin@example.com
 Password: changeme
