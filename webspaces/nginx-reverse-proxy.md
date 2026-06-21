@@ -18,7 +18,7 @@ Für einen Test wäre es sinnvoll, wenn die Server, die sich hinter dem Reverse-
 
 # Nginx installieren
 
-Als Grundsystem benutze ich eine Virtuelle Maschine mit Ubuntu 20.04 LTS, die eine feste IP (192.168.236.3) im internen Netz zugeordnet bekommen hat. Auf der Kommandozeile setzen wir folgende Befehle ab:
+Als Grundsystem benutze ich eine virtuelle Maschine mit Ubuntu 24.04 LTS, die eine feste IP (192.168.236.3) im internen Netz zugeordnet bekommen hat. Auf der Kommandozeile setzen wir folgende Befehle ab:
 
 System auf den aktuellen Stand bringen:
 
@@ -31,6 +31,8 @@ Nginx installieren:
 <pre>
 $ sudo apt install nginx nginx-extras
 </pre>
+
+Hinweis: Das Paket `nginx-extras` liegt unter Ubuntu im Repository `universe`. Sollte es nicht gefunden werden, aktiviere dieses zuvor mit `sudo add-apt-repository universe`.
 
 Nach Abschluss der Installation sollte der Webserver nun online sein, was sich einfach überprüfen lässt, indem man die IP-Adresse in den Browser eintippt. Es zeigt sich die Standardseite von Nginx:
 
