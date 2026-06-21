@@ -13,7 +13,7 @@ https://releases.wikimedia.org/mediawiki/1.39/mediawiki-1.39.1.tar.gz
 
 Beim Download erhält man eine gepackte ZIP-Datei, welche auf dem lokalen Computer entpackt werden muss. Darin befindet sich dann ein Ordner. Dessen Inhalt wird benötigt und muss entweder per FTP oder Datei-Manager hochgeladen werden. In diesem Beispiel wird die Einrichtung mittels FTP gezeigt.
 
-Nachdem man sich einen FTP-Account erstellt hat, verbindet man sich mit dem Webspace, navigiert ins httpdocs-Verzeichnis und lädt im Anschluss die Wordpress-Dateien hoch.
+Nachdem man sich einen FTP-Account erstellt hat, verbindet man sich mit dem Webspace, navigiert ins httpdocs-Verzeichnis und lädt im Anschluss die MediaWiki-Dateien hoch.
 
 ### Datenbank
 

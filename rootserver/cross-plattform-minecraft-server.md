@@ -1,6 +1,6 @@
 # Cross-Plattform Minecraft Server auf Rootserver installieren
 
-Diese Anleitung soll erklären, wie man einen Cross-Plattform Minecraft-Server in der aktuellen Version 1.19.1 auf einem Rootserver installiert.
+Diese Anleitung soll erklären, wie man einen Cross-Plattform Minecraft-Server auf einem Rootserver installiert.
 
 ## Den Server herunterladen
 

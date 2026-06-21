@@ -30,6 +30,7 @@
 * [Minecraft Server auf Debian 11 installieren](rootserver/minecraft-server-debian-11-installieren.md)
 * [Minecraft Server mit unterschiedlichen Java Versionen starten](rootserver/bestimmte-java-version.md)
 * [One-Click Gameserver Installation](rootserver/one-click-gameserver-installer.md)
+* [Cross-Plattform Minecraft Server installieren](rootserver/cross-plattform-minecraft-server.md)
 * [Virtualhost Apache2](rootserver/virtualhost-apache2.md)
 * [Virtualhost Redirection Apache2](rootserver/virtualhost-redirect-apache2.md)
 * [MongoDB installieren](rootserver/mongodb-installieren.md)
@@ -98,6 +99,7 @@
 
 
 ## Sonstiges
+* [Discord Server](sonstiges/discord.md)
 * [Public API](https://mc-host24.github.io/api-documentation/#/)
 * [Discord](https://discord.mc-host24.de)
 * [Teamspeak Server](ts3server://ts.mc-host24.de)

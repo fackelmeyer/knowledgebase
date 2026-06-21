@@ -2,7 +2,7 @@ Dieses Tutorial erklärt, wie man sich bei MC-Host24 einen Landwirtschafts-Simul
 
 # System-Anforderungen
 
-Benötigt wird ein Windows-Server mit Windows-Server 2016 oder 2019 als Software. Der Prozessor sollte mindestens mit 2,4GHz getaktet sein und eine 64-Bit-Architektur haben. An Speicherplatz wird mindestens 2GB Arbeitsspeicher (4GB-6GB für [Mods](landwirtschafts-simulator22/mods-installieren.md) und 6GB SSD-Speicher benötigt. Auch braucht man eine eigene, offizielle Game-Lizenz und eine öffentliche IPv4 bzw. IPv6-Adresse dafür.
+Benötigt wird ein Windows-Server mit Windows-Server 2016 oder 2019 als Software. Der Prozessor sollte mindestens mit 2,4GHz getaktet sein und eine 64-Bit-Architektur haben. An Speicherplatz wird mindestens 2GB Arbeitsspeicher (4GB-6GB für [Mods](mods-installieren.md) und 6GB SSD-Speicher benötigt. Auch braucht man eine eigene, offizielle Game-Lizenz und eine öffentliche IPv4 bzw. IPv6-Adresse dafür.
 
 # Arbeitsschritte
 ## 1. Die Lizenz herunterladen
