@@ -14,8 +14,12 @@ apt update && apt upgrade -y
 Installieren Sie anschließend diese Pakete, die benötigt werden, mit folgendem Befehl:
 
 ```bash
-apt install x11vnc xvfb libxcursor1 ca-certificates bzip2 libnss3 libegl1-mesa x11-xkb-utils libasound2 libpci3 libxslt1.1 libxkbcommon0 libxss1 libglib2.0-0 libxcomposite1 curl screen nano -y
+apt install x11vnc xvfb libxcursor1 ca-certificates bzip2 libnss3 libegl1 x11-xkb-utils libasound2 libpci3 libxslt1.1 libxkbcommon0 libxss1 libglib2.0-0 libxcomposite1 curl screen nano -y
 ```
+
+{% hint style="info" %}
+Auf **Debian 13 (trixie)** und **Ubuntu 24.04** wurden einige Bibliotheken umbenannt. Verwende dort statt `libasound2` das Paket `libasound2t64` und statt `libglib2.0-0` das Paket `libglib2.0-0t64`.
+{% endhint %}
 
 Fügen Sie anschließend einen Benutzer, der später den Sinusbot Server ausführen wird, auf Ihrem Server hinzu. Verwenden Sie dazu folgenden Befehl:
 
@@ -41,7 +45,9 @@ adduser --disabled-login sinusbot
 
 Die Abfrage weiterer Angaben wie Name, Telefonnummer, etc. können Sie einfach mit der Enter-Taste überspringen. Bestätigen Sie zum Schluss die Korrektheit der Informationen ebenfalls mit der Enter-Taste.
 
-![Bei den Folgenden fragen kannst du die mit der "Enter" Taste durchklicken und am Ende mit "Y/J" bestätigen]()
+{% hint style="info" %}
+Bei den folgenden Fragen kannst du mit der "Enter"-Taste durchklicken und am Ende mit "Y/J" bestätigen.
+{% endhint %}
 
 Erstellen Sie nun das Verzeichnis, in dem der Musikbot installiert werden soll, mit diesem Befehl:
 

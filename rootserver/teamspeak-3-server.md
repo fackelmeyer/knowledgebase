@@ -35,7 +35,9 @@ In diesem Beispiel heißt der Benutzer "ts3". Sie können auch einen anderen Nam
 
 Die Abfrage weiterer Angaben wie Name, Telefonnummer, etc. können Sie einfach mit der Enter-Taste überspringen. Bestätigen Sie zum Schluss die Korrektheit der Informationen ebenfalls mit der Enter-Taste.
 
-![Bei den Folgenden fragen kannst du die mit der "Enter" Taste durchklicken und am Ende mit "Y/J" bestätigen]()
+{% hint style="info" %}
+Bei den folgenden Fragen kannst du mit der "Enter"-Taste durchklicken und am Ende mit "Y/J" bestätigen.
+{% endhint %}
 
 
 * Wechseln Sie nun mit dem Befehl in das Benutzerkonto des TeamSpeak 3 Benutzers.
@@ -106,7 +108,7 @@ in das TeamSpeak 3 Verzeichnis wechseln und dort das Script entsprechend ausfüh
 
 {% tabs %}
 {% tab title="Starten" %}
-* Wenn du dich von außen direkt mit dem "ts3" Nutzer anmelden möchtest
+* Mit diesem Befehl startest du den TeamSpeak 3 Server:
 
 ```bash
 ./ts3server_startscript.sh start
@@ -115,7 +117,7 @@ in das TeamSpeak 3 Verzeichnis wechseln und dort das Script entsprechend ausfüh
 {% endtab %}
 
 {% tab title="Stoppen" %}
-* Mit diesem Befehl, kannst du dich nur mit Root in den Nutzer "ts3" anmelden
+* Mit diesem Befehl stoppst du den TeamSpeak 3 Server:
 
 ```bash
 ./ts3server_startscript.sh stop
