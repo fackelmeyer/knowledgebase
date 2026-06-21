@@ -197,7 +197,7 @@ Standardmäßig erlaubt eine MySQL-Datenbank nur Zugriffe durch den eigenen Serv
 ```bash
 nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
-in die Konfigurationsdatei deiner Datenbank und den Punkt `bind-adress = 127.0.0.1` auf `0.0.0.0` ändern, sodass es am Ende folgendermaßen aussieht:
+in die Konfigurationsdatei deiner Datenbank und den Punkt `bind-address = 127.0.0.1` auf `0.0.0.0` ändern, sodass es am Ende folgendermaßen aussieht:
 ```bash
 bind-address = 0.0.0.0
 ```
@@ -213,7 +213,7 @@ Dafür installierst du dir erstmals **UFW** auf deinem Server mit folgendem Befe
 ```bash
 apt install ufw -y
 ```
-Danach geben wir die Standart Port nach außen offen ( SSH, HTTP, HTTPS ):
+Danach geben wir die Standard Port nach außen offen ( SSH, HTTP, HTTPS ):
 ```bash
 ufw allow 22
 ufw allow 443

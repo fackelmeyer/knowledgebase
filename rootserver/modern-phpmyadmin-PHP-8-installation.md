@@ -140,7 +140,7 @@ Dort können Sie sich jetzt am MariaDB-Server anmelden.
 ### Wichtiger Sicherheits-Disclaimer
 **Die Datenbank sollte NICHT ohne zusätzliche Sicherheitsmaßnahmen von außen erreichbar sein!** Das öffentliche Exponieren einer Datenbank ist ein erhebliches Sicherheitsrisiko. Hier sind die Hauptgefahren:
 
-- **Unautorierte Zugriffe**: Angreifer können versuchen, sich mit Standardpasswörtern oder durch Brute-Force-Attacken Zugang zu verschaffen
+- **Unautorisierte Zugriffe**: Angreifer können versuchen, sich mit Standardpasswörtern oder durch Brute-Force-Attacken Zugang zu verschaffen
 - **Datendiebstahl**: Sensible Informationen (Benutzerdaten, Passwörter, etc.) können gestohlen werden
 - **SQL-Injection**: Anfälligkeit gegenüber SQL-Injektionen erhöht sich massiv bei direkter Exposition
 - **Denial-of-Service (DoS)**: Angreifer könnten die Datenbank mit Anfragen überlasten und zum Absturz bringen
@@ -153,7 +153,7 @@ Dort können Sie sich jetzt am MariaDB-Server anmelden.
 - Regelmäßige Backups und Security-Updates
 
 ### Datenbank von außen erreichbar machen
-Standardmäßig erlaubt eine MySQL-Datenbank nur Zugriffe durch den eigenen Server (`localhost`). Um ebenso Zugriffe von außerhalb zu erlauben, müssen Sie in der Konfigurationsdatei Ihrer Datenbank den Punkt `bind-adress` von `127.0.0.1` auf `0.0.0.0` ändern.
+Standardmäßig erlaubt eine MySQL-Datenbank nur Zugriffe durch den eigenen Server (`localhost`). Um ebenso Zugriffe von außerhalb zu erlauben, müssen Sie in der Konfigurationsdatei Ihrer Datenbank den Punkt `bind-address` von `127.0.0.1` auf `0.0.0.0` ändern.
 
 * Nutze dafür folgenden Befehl:
 ```bash
@@ -178,7 +178,7 @@ Dafür installieren Sie erstmals **UFW** auf Ihrem Server mit folgendem Befehl:
 ```bash
 apt install ufw -y
 ```
-* Danach geben wir die Standart Port nach außen offen ( SSH, HTTP, HTTPS ):
+* Danach geben wir die Standard Port nach außen offen ( SSH, HTTP, HTTPS ):
 ```bash
 ufw allow 22
 ufw allow 443

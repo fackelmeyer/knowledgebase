@@ -18,8 +18,8 @@ Für den Server braucht man, so wie beim Originalspiel eine Lizenz, damit man au
 
 ## DLCs
 
-Es gibt auch einige kostenpflichtige DLCs für den Landwirtschafts-Simulator. Diese kann man sich auch auf dem Server installieren. Wie das geht, ist [hier](landwirtschafts-simulator-22/dlcs-installieren.md) beschrieben.
+Es gibt auch einige kostenpflichtige DLCs für den Landwirtschafts-Simulator. Diese kann man sich ebenfalls auf dem Server installieren.
 
-## Hilfreiche Tipps
+## Mods
 
-Hilfreiche Tipps für einen LS22-Server lassen sich am besten [hier](landwirtschafts-simulator-22/ls22-tipps.md) finden.
+Wie du Mods auf deinem LS22-Server installierst, erfährst du in der Anleitung [Mods installieren](mods-installieren.md).

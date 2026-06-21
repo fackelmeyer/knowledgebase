@@ -31,7 +31,7 @@ Nutze hierzu die SFTP-Daten, die du im Webinterface unter dem Reiter `Einstellun
 
 Wir empfehlen dir, [WinSCP](https://winscp.net/eng/index.php) als SFTP-Client zu verwenden.
 
-Wie du dich mit deinem Server via. SFTP verbindest findest du auch in unserem Youtube Video [https://www.youtube.com/watch?v=KA9z-rLotnk](https://www.youtube.com/watch?v=KA9z-rLotnk) oder unter [Mit (S)FTP auf Rootserver verbinden](rootserver/sftp-verbinden.md).
+Wie du dich mit deinem Server via. SFTP verbindest findest du auch in unserem Youtube Video [https://www.youtube.com/watch?v=KA9z-rLotnk](https://www.youtube.com/watch?v=KA9z-rLotnk) oder unter [Mit (S)FTP auf Rootserver verbinden](../../rootserver/sftp-verbinden.md).
 {% endhint %}
 
 ### Wie aktiviere ich Mods auf meinem ARK: Survival Evolved Server?

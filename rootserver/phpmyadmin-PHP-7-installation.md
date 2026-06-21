@@ -1,4 +1,8 @@
-## PhpMyAdmin, PHP 7,  Apache2 und MySQL Installation
+## PhpMyAdmin, PHP 7, Apache2 und MySQL Installation
+
+{% hint style="warning" %}
+**PHP 7.4 hat das End-of-Life erreicht und erhält keine Sicherheitsupdates mehr.** Für neue Installationen verwende stattdessen die [Moderne PhpMyAdmin Installation (PHP 8.4)](modern-phpmyadmin-PHP-8-installation.md).
+{% endhint %}
 
 ## Falls Sie es noch nicht getan haben, laden Sie das Programm [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) herunter.
 Verbinden Sie sich mithilfe von PuTTY via SSH mit Ihrem Root- oder vServer. Hierfür öffnen Sie PuTTY und geben im Textfeld "Host Name (or IP address)" 
@@ -201,9 +205,9 @@ Standardmäßig erlaubt eine MySQL-Datenbank nur Zugriffe durch den eigenen Serv
 ```bash
 nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
-in die Konfigurationsdatei deiner Datenbank und den Punkt `bind-adress = 127.0.0.1` auf `0.0.0.0` ändern, sodass es am Ende folgendermaßen aussieht:
+in die Konfigurationsdatei deiner Datenbank und den Punkt `bind-address = 127.0.0.1` auf `0.0.0.0` ändern, sodass es am Ende folgendermaßen aussieht:
 ```bash
-bind-adress = 0.0.0.0
+bind-address = 0.0.0.0
 ```
 Speichern Sie Ihre Änderungen der Konfiguration, indem Sie **STRG + X, danach die "Y"-Taste und anschließend Enter** drücken.
  
@@ -217,7 +221,7 @@ Dafür installierst du dir erstmals **UFW** auf deinem Server mit folgendem Befe
 ```bash
 apt install ufw -y
 ```
-Danach geben wir die Standart Port nach außen offen ( SSH, HTTP, HTTPS ):
+Danach geben wir die Standard Port nach außen offen ( SSH, HTTP, HTTPS ):
 ```bash
 ufw allow 22
 ufw allow 443
