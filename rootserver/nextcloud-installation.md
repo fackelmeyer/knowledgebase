@@ -21,7 +21,7 @@ nachschauen.
 
 {% tabs %}
 {% tab title="Debian" %}
-* Füge die Paket-Quelle für die PHP8.0 Version hinzu.
+* Füge die Paket-Quelle für die PHP 8.3 Version hinzu.
 
 ```bash
 curl -fsSL https://packages.sury.org/php/apt.gpg -o /usr/share/keyrings/php-archive-keyring.gpg
@@ -33,7 +33,7 @@ echo "deb [signed-by=/usr/share/keyrings/php-archive-keyring.gpg] https://packag
 {% endtab %}
 
 {% tab title="Ubuntu" %}
-* Füge die Paket-Quelle für die PHP8.0 Version hinzu.
+* Füge die Paket-Quelle für die PHP 8.3 Version hinzu.
 
 ```bash
 apt install software-properties-common -y
@@ -54,10 +54,10 @@ apt update
 ```bash
 apt install apache2 -y
 ```
-## Installation von PHP
-* Installiere PHP8 sowie die PHP-Module
+## Installation von PHP 8.3
+* Installiere PHP 8.3 sowie die PHP-Module
 ```bash
-apt install php8.0 php8.0-cli php8.0-common php8.0-curl php8.0-gd php8.0-intl php8.0-mbstring php8.0-mysql php8.0-opcache php8.0-readline php8.0-xml php8.0-xsl php8.0-zip php8.0-bz2 libapache2-mod-php8.0 -y
+apt install php8.3 php8.3-cli php8.3-common php8.3-curl php8.3-gd php8.3-intl php8.3-mbstring php8.3-mysql php8.3-opcache php8.3-readline php8.3-xml php8.3-xsl php8.3-zip php8.3-bz2 php8.3-gmp php8.3-bcmath libapache2-mod-php8.3 -y
 ```
 ## Installation von PHPMyAdmin
 * Installiere MySQL
