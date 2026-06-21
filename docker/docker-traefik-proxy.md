@@ -6,7 +6,7 @@ Traefik integriert sich in Ihre bestehenden Infrastrukturkomponenten (Docker, Sw
 
 Wenn man Traefik auf Ihren Orchestrator richtet, sollte dies der einzige Konfigurationsschritt sein, den man dafür benötigt.
 
-## Traefik v2 - Nutzungs-Beispiele
+## Traefik v3 - Nutzungs-Beispiele
 
 Den Docker-Provider und die Webbasierte Benutzeroberfläche öffnen:
 
@@ -29,7 +29,7 @@ Traefik starten:
 docker run -d -p 8080:8080 -p 80:80 \
 -v $PWD/traefik.yml:/etc/traefik/traefik.yml \
 -v /var/run/docker.sock:/var/run/docker.sock \
-traefik:v2.5
+traefik:v3.5
 </pre>
 
 Einen Backend-Server namens test starten:
