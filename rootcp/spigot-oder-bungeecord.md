@@ -2,9 +2,13 @@
 
 ## Wie installiere ich Spigot auf meinem Rootserver?
 
-Um Spigot auf deinem Server zu installieren, benötigst du eine Spigot Jar. Diese kannst du hier downloaden:
+Um Spigot auf deinem Server zu installieren, benötigst du eine Server-Jar. Wir empfehlen **PaperMC** – einen performanten, voll kompatiblen Spigot-Nachfolger. Die passende Jar kannst du hier herunterladen:
 
-{% embed url="https://getbukkit.org/download/spigot" %}
+{% embed url="https://papermc.io/downloads/paper" %}
+
+{% hint style="info" %}
+Die frühere Download-Quelle getbukkit.org ist nicht mehr verfügbar. Wer zwingend das originale Spigot benötigt, kann es über die offiziellen [SpigotMC BuildTools](https://www.spigotmc.org/wiki/buildtools/) selbst bauen.
+{% endhint %}
 
 Wenn du die passende Version auf deinen Computer heruntergeladen hast, gehe wieder auf
 
@@ -60,15 +64,23 @@ Sobald dies gemacht ist, muss die passende Java Version ausgewählt werden. Dazu
 
 1.19.x Java 17
 
+1.20.x Java 17 (ab 1.20.5 Java 21)
+
+1.21.x Java 21
+
 </details>
 
 Ist die richtige JAR File eintragen und die richtige Java Version ausgewählt, kann der Server gestartet und genutzt werden.
 
 ## Wie installiere ich Bungeecord auf meinem Rootserver?
 
-Um Bungeecord auf deinem Server zu installieren, benötigst du eine Bungeecord Jar. Diese kannst du hier downloaden:
+Um ein Proxy-Netzwerk auf deinem Server zu installieren, benötigst du eine Proxy-Jar. Für neue Netzwerke empfehlen wir **Velocity** – BungeeCord und Waterfall gelten als veraltet. Die passende Jar kannst du hier herunterladen:
 
-{% embed url="https://ci.md-5.net/job/BungeeCord/" %}
+{% embed url="https://papermc.io/downloads/velocity" %}
+
+{% hint style="info" %}
+Wer weiterhin BungeeCord verwenden möchte, findet die offizielle Quelle bei [SpigotMC](https://www.spigotmc.org/wiki/bungeecord-installation/). Die folgenden Schritte funktionieren für Velocity und BungeeCord gleichermaßen.
+{% endhint %}
 
 Wenn du die passende Version auf deinen Computer heruntergeladen hast, gehe wieder auf
 
@@ -92,7 +104,7 @@ Schreibe unter "SERVER JAR FILE" den Namen der gerade hochgeladenen Jar Datei re
 
 ![Server JAR Pterodactyl](../.gitbook/assets/serverjar-bungeecord.png)
 
-Sobald dies gemacht ist, muss die passende Java Version ausgewählt werden. Dazu gehe unter "Startkonfiguration" auf "DOCKER IMAGE". Bei den neusten Bungeecord Jars muss Java 17 verwendet werden.
+Sobald dies gemacht ist, muss die passende Java Version ausgewählt werden. Dazu gehe unter "Startkonfiguration" auf "DOCKER IMAGE". Für die neusten Velocity- bzw. BungeeCord-Jars empfiehlt sich Java 21 (mindestens Java 17).
 
 ![Java Version auswählen](../.gitbook/assets/minecraft-java-version.png)
 
@@ -123,6 +135,10 @@ Sobald dies gemacht ist, muss die passende Java Version ausgewählt werden. Dazu
 1.18.x Java 17
 
 1.19.x Java 17
+
+1.20.x Java 17 (ab 1.20.5 Java 21)
+
+1.21.x Java 21
 
 </details>
 

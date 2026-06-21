@@ -21,4 +21,4 @@ Beim erstmaligen Start des Plugins wird eine sogenannte "config.yml"-Datei gener
 
 ## 5. Add-Ons (Erweiterungen) für ViaVersion
 
-Als offizielle Erweiterungen für ViaVersion gibt es z.B. noch ViaBackwards, dieses Plugin fügt Unterstützung für die Versionen 1.9 bis 1.19.3 auf 1.19.4-Servern hinzu und ViaRewind, welches nochmals zwei weitere Versionen (1.8 - 1.8.9 und 1.7 - 1.7.10) auf 1.19-Servern erlaubt.
+Als offizielle Erweiterungen für ViaVersion gibt es z.B. noch ViaBackwards, dieses Plugin fügt älteren Clients Unterstützung für neuere Server-Versionen hinzu und ViaRewind, welches noch ältere Client-Versionen (1.8 - 1.8.9 und 1.7 - 1.7.10) auf neueren Servern erlaubt.

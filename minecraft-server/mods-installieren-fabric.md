@@ -1,10 +1,10 @@
 Dieses Tutorial zeigt, wie man sich Mods für Fabric auf Minecraft-Servern installieren kann.
 
 # 1. Anforderungen
-Zuerst wird ein Fabric-Server, ein [Forge-Server](minecraft-server/mods-installieren-forge.md) oder ein [Mohist-Server](minecraft-server/mods-und-plugins.md) für die <b>Java Edition von Minecraft</b> benötigt. Diese Server sind speziell für Mods gedacht.
+Zuerst wird ein Fabric-Server, ein [Forge-Server](mods-installieren-forge.md) oder ein [Mohist-Server](mods-und-plugins.md) für die <b>Java Edition von Minecraft</b> benötigt. Diese Server sind speziell für Mods gedacht.
 
 # 2. Fabric installieren
-Falls du aktuell noch kein Fabric installiert hast, kannst du dies noch nachträglich dazu installieren. Wie das geht, steht [hier](minecraft-server/version-wechseln.md). Hier wird die aktuelle Loader Version 0.14.19 empfohlen.
+Falls du aktuell noch kein Fabric installiert hast, kannst du dies noch nachträglich dazu installieren. Wie das geht, steht [hier](version-wechseln.md). Verwende dabei am besten die jeweils aktuelle Fabric-Loader-Version.
 
 # 3. Mods installieren
 Falls du Fabric (bereits) installiert hast, kannst du jetzt Mods installieren. Dazu öffnest du in deinem Browser [CurseForge](https://curseforge.com/minecraft/mc-mods), lädst dir den Mod den du willst für die passende Minecraft-Version (z.B. 1.19.4) herunter.
@@ -19,7 +19,7 @@ Damit der Server die kürzlich hochgeladenen Mods auch erkennt, muss er noch neu
 Damit z.B. die gemoddeten Blöcke auf beiden Seiten (Client und Server) erkannt werden, muss der Mod <b>auch auf dem Client</b> installiert sein. Ansonsten kannst du den Server nicht betreten und es kommt nur eine Fehlermeldung. Wie du dir Fabric und Mods auf dem Client installieren kannst, steht [hier](https://fabricmc.net/wiki/de:tutorial:adding_mods#:~:text=Um%20dem%20Fabric%2DClient%20eine,sie%20in%20diesem%20Ordner%20ab.)
 
 # 6. Mods mit Ports (z.B. DynMap)
-Einige Mods (z.B. DynMap und Simple Voice Chat) erfordern, dass zusätzliche Ports freigegeben werden. Dies ist ebenfalls im Webinterface möglich. Für nähere Infos zur DynMap siehe bitte [hier](minecraft-server/weltkarte.md), zur Bluemap siehe bitte [hier](minecraft-server/3d-weltkarte.md) und für den Sprachchat siehe [hier](minecraft-server/sprachchat.md).
+Einige Mods (z.B. DynMap und Simple Voice Chat) erfordern, dass zusätzliche Ports freigegeben werden. Dies ist ebenfalls im Webinterface möglich. Für nähere Infos zur DynMap siehe bitte [hier](weltkarte.md), zur Bluemap siehe bitte [hier](3d-weltkarte.md) und für den Sprachchat siehe [hier](sprachchat.md).
 
 {% hint style="warning" %}
 Wenn du einen One-Click Gameserver auf einem Rootserver benutzt, eröffne bitte ein Support-Ticket um einen weiteren Port freizugeben.

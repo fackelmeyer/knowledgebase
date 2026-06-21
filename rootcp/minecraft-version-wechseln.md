@@ -60,6 +60,10 @@ Damit der Server ordentlich starten kann, muss unter "Startkonfiguration" noch d
 
 1.19.x Java 17
 
+1.20.x Java 17 (ab 1.20.5 Java 21)
+
+1.21.x Java 21
+
 </details>
 
 Nachdem die Version und die Java Version ausgewählt wurde, muss der Server einmal neuinstalliert werden. Dazu klicke auf "Einstellungen" und anschließend auf "**REINSTALL SERVER**".
